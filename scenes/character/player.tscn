@@ -148,7 +148,7 @@ script = ExtResource("1_m8384")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_d7rss")
 
-[node name="s" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -2)
 scale = Vector2(1.70833, 1.675)
 sprite_frames = SubResource("SpriteFrames_pdrq7")

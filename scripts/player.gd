@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed : float = 10.0
 
-@onready var animated_sprite : AnimatedSprite2D = $s
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite
 
 var direction : Vector2 = Vector2.ZERO
 
@@ -20,7 +20,6 @@ func _physics_process(delta):
 	update_facing_direction()
 
 func update_animation():
-	print(direction.x,direction.y)
 	if direction.x or direction.y != 0:
 		animated_sprite.play("run")
 	else:

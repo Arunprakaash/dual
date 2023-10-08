@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://chu6xwoiljfew"]
+[gd_scene load_steps=8 format=3 uid="uid://chu6xwoiljfew"]
 
 [ext_resource type="Script" path="res://scripts/procedural_world_gen.gd" id="1_1itj5"]
+[ext_resource type="Texture2D" uid="uid://pmipxkvw3uie" path="res://Assets/tilesets/forest_ [resources].png" id="1_w7vl1"]
 [ext_resource type="Texture2D" uid="uid://c121ehag0mev3" path="res://Assets/tilesets/forestPath_.png" id="3_1gugq"]
 [ext_resource type="PackedScene" uid="uid://djxa0awel6rei" path="res://scenes/character/player.tscn" id="3_4xf6l"]
 
@@ -209,28 +210,75 @@ texture = ExtResource("3_1gugq")
 6:3/0/terrains_peering_bit/top_side = 0
 6:3/0/terrains_peering_bit/top_right_corner = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tujnj"]
+resource_name = "env_objects"
+texture = ExtResource("1_w7vl1")
+1:1/size_in_atlas = Vector2i(1, 2)
+1:1/0 = 0
+2:1/size_in_atlas = Vector2i(1, 2)
+2:1/0 = 0
+3:1/size_in_atlas = Vector2i(3, 2)
+3:1/0 = 0
+6:1/size_in_atlas = Vector2i(1, 2)
+6:1/0 = 0
+1:3/0 = 0
+1:4/0 = 0
+2:3/size_in_atlas = Vector2i(2, 2)
+2:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+1:5/size_in_atlas = Vector2i(1, 2)
+1:5/0 = 0
+2:5/size_in_atlas = Vector2i(1, 2)
+2:5/0 = 0
+3:5/size_in_atlas = Vector2i(2, 2)
+3:5/0 = 0
+5:5/size_in_atlas = Vector2i(2, 2)
+5:5/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_8h00l"]
+uv_clipping = true
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "dirt"
 terrain_set_0/terrain_0/color = Color(0.117647, 0.411765, 0.576471, 1)
 terrain_set_0/terrain_1/name = "grass"
 terrain_set_0/terrain_1/color = Color(0.635294, 0.266667, 0.654902, 1)
 sources/0 = SubResource("TileSetAtlasSource_3bfij")
+sources/1 = SubResource("TileSetAtlasSource_tujnj")
 
 [node name="world" type="Node2D"]
 scale = Vector2(-0.461105, -0.452337)
 script = ExtResource("1_1itj5")
 
 [node name="TileMap" type="TileMap" parent="."]
+rotation = 3.14159
 tile_set = SubResource("TileSet_8h00l")
 format = 2
+layer_0/name = "ground"
+layer_1/name = "world_props"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
 
 [node name="Camera2D" type="Camera2D" parent="."]
-rotation = 3.14159
-scale = Vector2(0.2, 0.156)
-zoom = Vector2(20, 20)
+rotation = -3.14159
+scale = Vector2(0.4, 0.312)
+zoom = Vector2(12, 12)
 
 [node name="player" parent="." instance=ExtResource("3_4xf6l")]
+scale = Vector2(0.4, 0.312)
+speed = 50.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
 remote_path = NodePath("../../Camera2D")
