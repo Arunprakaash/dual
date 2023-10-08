@@ -1,0 +1,155 @@
+[gd_scene load_steps=21 format=3 uid="uid://cera5mctsa4ar"]
+
+[ext_resource type="Script" path="res://player1.gd" id="1_uqtfh"]
+[ext_resource type="Texture2D" uid="uid://hk7jijf23agv" path="res://AnimationSheet.png" id="2_48xa3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7rss"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7q4h"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(96, 100, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyo6c"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(120, 100, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpnnx"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(144, 100, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx6sv"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(168, 100, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4fec"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bntf3"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2sse"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku7nw"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3ubk"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ttsx"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpaom"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(96, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghiaa"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(120, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu8yi"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(0, 96, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y83x7"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(24, 96, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fx1r"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(48, 96, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejp5g"]
+atlas = ExtResource("2_48xa3")
+region = Rect2(72, 96, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pdrq7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7q4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyo6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpnnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx6sv")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4fec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bntf3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2sse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku7nw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3ubk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ttsx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpaom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghiaa")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu8yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y83x7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fx1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejp5g")
+}],
+"loop": true,
+"name": &"win",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(3.40448, 2.64886)
+script = ExtResource("1_uqtfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_d7rss")
+
+[node name="s" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -2)
+scale = Vector2(1.70833, 1.675)
+sprite_frames = SubResource("SpriteFrames_pdrq7")
+animation = &"die"
+autoplay = "idle"
