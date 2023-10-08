@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://chu6xwoiljfew"]
+[gd_scene load_steps=6 format=3 uid="uid://chu6xwoiljfew"]
 
 [ext_resource type="Script" path="res://scripts/procedural_world_gen.gd" id="1_1itj5"]
 [ext_resource type="Texture2D" uid="uid://c121ehag0mev3" path="res://Assets/tilesets/forestPath_.png" id="3_1gugq"]
+[ext_resource type="PackedScene" uid="uid://djxa0awel6rei" path="res://scenes/character/player.tscn" id="3_4xf6l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3bfij"]
 texture = ExtResource("3_1gugq")
@@ -225,5 +226,10 @@ tile_set = SubResource("TileSet_8h00l")
 format = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
+scale = Vector2(0.2, 0.156)
 zoom = Vector2(10, 10)
+
+[node name="player" parent="." instance=ExtResource("3_4xf6l")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
+remote_path = NodePath("../../Camera2D")
