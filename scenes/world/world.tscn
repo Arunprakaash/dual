@@ -226,8 +226,9 @@ tile_set = SubResource("TileSet_8h00l")
 format = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
+rotation = 3.14159
 scale = Vector2(0.2, 0.156)
-zoom = Vector2(10, 10)
+zoom = Vector2(20, 20)
 
 [node name="player" parent="." instance=ExtResource("3_4xf6l")]
 
