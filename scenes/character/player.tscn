@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_m8384"]
 [ext_resource type="Texture2D" uid="uid://hk7jijf23agv" path="res://Assets/character sprite sheet/AnimationSheet.png" id="2_cqjqh"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7rss"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkfyw"]
+size = Vector2(10, 12.8205)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7q4h"]
 atlas = ExtResource("2_cqjqh")
@@ -141,12 +142,15 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D"]
-rotation = 3.14159
 scale = Vector2(0.2, 0.156)
 script = ExtResource("1_m8384")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_d7rss")
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0.265, 6.765)
+scale = Vector2(1.15, 1.135)
+shape = SubResource("RectangleShape2D_vkfyw")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -2)
