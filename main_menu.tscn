@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://3mdokowkq0r4"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_bt4ij"]
+[ext_resource type="Texture2D" uid="uid://fjpag56chfg5" path="res://Assets/Buttons/ButtonText_Small_Orange_Square.png" id="1_qm27o"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 9.0
+offset_right = 40.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bt4ij")
+
+[node name="Host" type="Button" parent="."]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 277.0
+offset_right = 932.0
+offset_bottom = 513.0
+scale = Vector2(0.520001, 0.440001)
+icon = ExtResource("1_qm27o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Host"]
+layout_mode = 0
+offset_left = 99.9997
+offset_top = 29.5453
+offset_right = 589.0
+offset_bottom = 215.545
+theme_override_font_sizes/normal_font_size = 121
+theme_override_font_sizes/bold_font_size = 0
+text = "HOST"
+fit_content = true
+
+[node name="Host2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 404.0
+offset_right = 934.0
+offset_bottom = 640.0
+scale = Vector2(0.520001, 0.440001)
+icon = ExtResource("1_qm27o")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Host2"]
+layout_mode = 0
+offset_left = 99.9998
+offset_top = 27.2727
+offset_right = 589.0
+offset_bottom = 213.273
+theme_override_font_sizes/normal_font_size = 121
+theme_override_font_sizes/bold_font_size = 0
+text = "JOIN"
+fit_content = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 527.0
+offset_right = 627.0
+offset_bottom = 588.0
+placeholder_text = "IP ID:"
+
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
